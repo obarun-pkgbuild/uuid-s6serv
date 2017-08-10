@@ -1,0 +1,9 @@
+#!/usr/local/bin/execlineb -P
+fdmove -c 2 1
+foreground {
+	if -n { s6-test -d /run/uuid }
+	install -o 68 -g 68 -dm755 /run/uuidd
+}
+s6-setuidgid uuidd
+exec -c
+/usr/bin/uuidd -d -F -P
