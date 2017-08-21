@@ -1,8 +1,0 @@
-post_install() {
-	echo "	>> Create directory for log on /var/log/s6serv/uuidd" 
-	mkdir -p -m 0755 /var/log/s6serv/uuidd
-	chown -R s6log:log /var/log/s6serv/uuidd 
-}
-post_ugrade(){
-	post_install
-}
